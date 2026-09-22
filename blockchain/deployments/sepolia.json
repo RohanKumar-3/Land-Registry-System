@@ -1,0 +1,17 @@
+{
+  "network": "sepolia",
+  "chainId": "11155111",
+  "deployer": "0x1e46091cf8Ea7f4C98c90Af464d950058554c62E",
+  "deployedAt": "2026-03-13T15:53:47.502Z",
+  "explorer": "https://sepolia.etherscan.io",
+  "contracts": {
+    "LandRegistry": {
+      "address": "0x1B19F7A7D5c4019bC0a856b562FBF820Ab4CDb6A",
+      "explorer": "https://sepolia.etherscan.io/address/0x1B19F7A7D5c4019bC0a856b562FBF820Ab4CDb6A"
+    },
+    "TransferContract": {
+      "address": "0xbBC928458C8220F4b976cF0b5E8c3BEBa51d25Ca",
+      "explorer": "https://sepolia.etherscan.io/address/0xbBC928458C8220F4b976cF0b5E8c3BEBa51d25Ca"
+    }
+  }
+}

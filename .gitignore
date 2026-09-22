@@ -1,0 +1,26 @@
+# Node
+node_modules/
+.env
+
+# Python
+__pycache__/
+*.pyc
+venv/
+ml/models/*.h5
+
+# Hardhat
+blockchain/artifacts/
+blockchain/cache/
+
+# Vite
+frontend/dist/
+
+# Root .gitignore
+node_modules/
+.env
+*.env
+ml/venv/
+ml/credentials/
+__pycache__/
+.DS_Store
+dist/

@@ -1,0 +1,184 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ================= THEME ================= */
+  * {
+    box-sizing: border-box;
+  }
+
+@theme {
+  --font-body: "Inter", sans-serif;
+  --font-display: "Poppins", sans-serif;
+
+  --color-earth-400: #c6a065;
+  --color-earth-500: #9e7a4f;
+  --color-earth-600: #7c5f3d;
+
+  --color-forest-500: #2a5a3c;
+  --color-forest-700: #183622;
+
+  --shadow-card: 0 8px 24px rgba(0,0,0,0.25);
+  --shadow-earth: 0 6px 18px rgba(158,122,79,0.35);
+  --shadow-glow: 0 0 20px rgba(158,122,79,0.55);
+}
+
+/* ================= BASE ================= */
+
+@layer base {
+
+
+
+  body {
+    @apply bg-slate-950 text-slate-100 font-body antialiased;
+
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(158,122,79,0.12), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(42,90,60,0.08), transparent);
+
+    min-height: 100vh;
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
+  }
+
+}
+
+/* ================= COMPONENTS ================= */
+
+@layer components {
+
+  .btn-primary {
+    @apply bg-earth-500 hover:bg-earth-400 text-white font-body font-medium
+           px-5 py-2.5 rounded-lg transition-all duration-200
+           shadow-earth hover:shadow-glow hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-earth-400 focus:ring-offset-2 focus:ring-offset-slate-950;
+  }
+
+  .btn-secondary {
+    @apply bg-slate-800 hover:bg-slate-700 text-slate-200 font-body font-medium
+           px-5 py-2.5 rounded-lg border border-slate-700 hover:border-slate-600
+           transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply text-slate-400 hover:text-slate-100 hover:bg-slate-800
+           px-4 py-2 rounded-lg transition-all duration-200 font-medium;
+  }
+
+  .card {
+    @apply bg-slate-900 border border-slate-800 rounded-xl shadow-card;
+  }
+
+  .card-hover {
+    @apply bg-slate-900 border border-slate-800 rounded-xl shadow-card
+           hover:border-earth-600 hover:shadow-earth
+           transition-all duration-300 cursor-pointer;
+  }
+
+  .input-field {
+    @apply w-full bg-slate-800 border border-slate-700 text-slate-100
+           rounded-lg px-4 py-3 font-body text-sm
+           placeholder:text-slate-500
+           focus:outline-none focus:ring-2 focus:ring-earth-500 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-slate-300 mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-verified {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium
+           bg-forest-700 text-green-300 border border-forest-500;
+  }
+
+  .badge-pending {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium
+           bg-yellow-900/50 text-yellow-300 border border-yellow-700/50;
+  }
+
+  .badge-flagged {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium
+           bg-red-900/50 text-red-300 border border-red-700/50;
+  }
+
+  .badge-rejected {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium
+           bg-slate-800 text-slate-400 border border-slate-700;
+  }
+
+  .section-title {
+    @apply font-display text-2xl text-slate-100 mb-1;
+  }
+
+  .section-sub {
+    @apply text-slate-400 text-sm font-body;
+  }
+
+  .stat-card {
+    @apply bg-slate-900 border border-slate-800 rounded-xl shadow-card
+           p-5 flex items-start gap-4;
+  }
+
+  .page-wrapper {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+
+}
+
+/* ================= MAP ================= */
+
+.leaflet-container {
+  background: #0d1421 !important;
+  border-radius: 12px;
+}
+
+.leaflet-tile {
+  filter: brightness(0.7) saturate(0.8);
+}
+
+.leaflet-control-attribution {
+  background: rgba(13,20,33,0.8) !important;
+  color: #64748b !important;
+}
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1421;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* ================= ANIMATION ================= */
+
+.page-enter {
+  animation: fadeSlideUp 0.35s ease forwards;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Satellite Image Test</title>
+  <style>
+    body { background: #0d1421; color: white; font-family: sans-serif;
+           display: flex; flex-direction: column; align-items: center; padding: 40px; }
+    img  { border: 2px solid #9e7a4f; border-radius: 8px; margin-top: 20px; }
+    pre  { background: #1e293b; padding: 16px; border-radius: 8px;
+           max-width: 600px; overflow: auto; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h2>🛰️ GEE Satellite Image Test</h2>
+  <p id="status">Fetching image...</p>
+  <img id="satellite" width="512" height="512" />
+  <pre id="info"></pre>
+
+  <script>
+    const lat = 18.5204;
+    const lng = 73.8567;
+
+    fetch(`http://localhost:8000/test-image?lat=${lat}&lng=${lng}`)
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('satellite').src = data.satellite_image_url;
+        document.getElementById('status').textContent =
+          `✅ Image loaded! Source: ${data.source}`;
+        document.getElementById('info').textContent =
+          JSON.stringify({ lat: data.lat, lng: data.lng, source: data.source }, null, 2);
+      })
+      .catch(err => {
+        document.getElementById('status').textContent = '❌ Failed: ' + err.message;
+      });
+  </script>
+</body>
+</html>
